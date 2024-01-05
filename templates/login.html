@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login & Registration Form</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+    <div class="container">
+        <input type="checkbox" id="check">
+        <div class="login form">
+            <header>Login</header>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if messages %}
+                {{ message.tags }}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <input type="text" placeholder="Enter your username" name="username" required>
+                <input type="password" placeholder="Enter your password" name = "password" required>
+                <a href="#">Forgot password?</a>
+                <input type="submit" class="button">
+            </form>
+            <div class="signup">
+                <span class="signup">Don't have an account?
+                    <a href="{% url 'register' %}">Signup</a>
+                </span>
+            </div>
+        </div>
+     
+    </div>
+</body>
+
+</html>

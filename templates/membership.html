@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/member.css' %}">
+<script src="https://kit.fontawesome.com/e636ec599d.js" crossorigin="anonymous"></script>
+<div class="cards">
+    <h2 class="header" style="color: white;">
+        MEMBERSHIP PLANE
+    </h2>
+    <div class="services">
+        {% for n in datas %}
+        <div class="content content-1">
+            <div class="fa-solid fa-chess-bishop fa-4x" style="color: white;"></div>
+            <h2>
+                SILVER
+            </h2>
+            <p>
+             
+                {{n.Silver_text}}
+            </p>
+            <a href="#">Buy Now</a>
+        </div>
+        <div class="content content-2">
+            <div class="fa-solid fa-chess-rook fa-4x" style="color: white;"></div>
+            <h2>
+                GOLD
+            </h2>
+            <p>
+             
+                {{n.Gold_text}}
+                heheh
+            </p>
+            <a href="#">Buy Now</a>
+        </div>
+        <div class="content content-3">
+            <div class="fa-solid fa-chess-king fa-4x" style="color: white;"></div>
+            <h2>
+                PLATINIUM
+            </h2>
+            <p>
+          
+                {{n.Platinium_text}}
+            </p>
+            <a href="#">Buy Now</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

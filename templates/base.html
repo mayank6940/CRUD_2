@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MILLIONAIRE | YOUNGSTERS</title>
+    
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body style="background-color: #161515;">
+    
+    <nav>
+        {% csrf_token %}
+        <div class="logo">MILLIONAIRE</div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+            <li><a href="/">Profile</a></li>
+            <li><a href="/membership">Membership</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Sign Out</a></li>
+            {% else %}
+            <li><a href="/">Sign In</a></li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    
+     {% block content %} {% endblock content %}
+     <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 MILLIONAIRE All rights reserved.</p>
+            <ul class="social-links">
+                <li>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    
+  
+</body>
+</html>

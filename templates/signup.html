@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> signup</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    {% csrf_token %}
+    <div class="container">
+        <div class="title">Registration</div>
+        <div class="content">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if messages %}
+                {{ message.tags }}
+                <div class="alert alert-danger" role="alert" style="color: red;">
+                    {% for message in messages %}
+                    {{ message }}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="user-details">
+                 
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                       
+                        {{form.username}}
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        
+                        {{form.email}}
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        
+                        {{form.password1}}
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirm Password</span>
+                        
+                        {{form.password2}}
+                    </div>
+                </div>
+            
+                <div class="button">
+                    
+                    <input type="submit">
+                </div>
+                <div class="signup">
+                    <span class="signup">Already have an account?
+                       
+                        <a href="{% url 'login' %}">Login</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
